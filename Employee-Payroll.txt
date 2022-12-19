@@ -1,0 +1,28 @@
+UC1 :Ability to create a payroll service database
+
+mysql> create database payroll_service;
+ERROR 1007 (HY000): Can't create database 'payroll_service'; database exists
+mysql> create database payroll_services;
+ERROR 1007 (HY000): Can't create database 'payroll_services'; database exists
+mysql> create database Employee_payroll_services;
+Query OK, 1 row affected (0.04 sec)
+
+mysql> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+mysql> show databases;
++---------------------------+
+| Database                  |
++---------------------------+
+| address_book_system       |
+| addressbookservice        |
+| blz                       |
+| employee_payroll_services |
+| information_schema        |
+| mysql                     |
+| payroll_service           |
+| payroll_services          |
+| performance_schema        |
+| sys                       |
++---------------------------+
+10 rows in set (0.04 sec)
+
