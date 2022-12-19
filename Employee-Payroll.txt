@@ -66,3 +66,24 @@ mysql> select * from employee_payroll;
 |  3 | Charlie |  300000 | 2020-05-21 |
 +----+---------+---------+------------+
 3 rows in set (0.00 sec)
+
+UC5_Retrieve data for particular employee and joined in data range
+
+mysql> select * salary from employee_payroll where name='Bill';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'salary from employee_payroll where name='Bill'' at line 1
+mysql> select * from employee_payroll where name='Bill';
++----+------+---------+------------+
+| id | name | salary  | Start      |
++----+------+---------+------------+
+|  1 | Bill | 1000000 | 2010-10-30 |
++----+------+---------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee_payroll where start between '2018-01-01' AND Date(now());
++----+---------+---------+------------+
+| id | name    | salary  | Start      |
++----+---------+---------+------------+
+|  2 | Tersia  | 2000000 | 2019-11-13 |
+|  3 | Charlie |  300000 | 2020-05-21 |
++----+---------+---------+------------+
+2 rows in set (0.00 sec)
