@@ -278,3 +278,45 @@ mysql> SELECT * FROM employee_payroll;
 |  3 | Charlie | M      |  300000 | 2020-05-21 |  NULL | NULL       | NULL    |
 +----+---------+--------+---------+------------+-------+------------+---------+
 3 rows in set (0.00 sec)
+
+UC9_Extend table to have Basic pay,Deduction,Taxable pay,Income tax,Net pay.
+
+mysql> SELECT * FROM employee_payroll;
++----+---------+--------+---------+------------+-------+------------+---------+
+| id | name    | gender | salary  | Start      | Phone | Department | Address |
++----+---------+--------+---------+------------+-------+------------+---------+
+|  1 | Bill    | M      | 1000000 | 2010-10-30 |  NULL | NULL       | NULL    |
+|  2 | Tersia  | F      | 2000000 | 2019-11-13 |  NULL | NULL       | NULL    |
+|  3 | Charlie | M      |  300000 | 2020-05-21 |  NULL | NULL       | NULL    |
++----+---------+--------+---------+------------+-------+------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> ALTER TABLE employee_payroll ADD basicPay Double;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee_payroll ADD Deductions Double;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee_payroll ADD TaxablePay Double;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee_payroll ADD IncomeTax Double;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee_payroll ADD NetPay Double;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM employee_payroll;
++----+---------+--------+---------+------------+-------+------------+---------+----------+------------+------------+-----------+--------+
+| id | name    | gender | salary  | Start      | Phone | Department | Address | basicPay | Deductions | TaxablePay | IncomeTax | NetPay |
++----+---------+--------+---------+------------+-------+------------+---------+----------+------------+------------+-----------+--------+
+|  1 | Bill    | M      | 1000000 | 2010-10-30 |  NULL | NULL       | NULL    |     NULL |       NULL |       NULL |      NULL |   NULL |
+|  2 | Tersia  | F      | 2000000 | 2019-11-13 |  NULL | NULL       | NULL    |     NULL |       NULL |       NULL |      NULL |   NULL |
+|  3 | Charlie | M      |  300000 | 2020-05-21 |  NULL | NULL       | NULL    |     NULL |       NULL |       NULL |      NULL |   NULL |
++----+---------+--------+---------+------------+-------+------------+---------+----------+------------+------------+-----------+--------+
+3 rows in set (0.00 sec)
