@@ -227,3 +227,54 @@ mysql> select count(salary) from employee_payroll where gender = 'F' group by ge
 1 row in set (0.00 sec)
 
 mysql> select count(salary) from employee_payroll where gender = 'F' group by gender;
+
+
+UC8: Extend employee_payroll data to store employee information like phone no.,department,address.
+
+mysql> desc employee_payroll;
++--------+--------------+------+-----+---------+----------------+
+| Field  | Type         | Null | Key | Default | Extra          |
++--------+--------------+------+-----+---------+----------------+
+| id     | int unsigned | NO   | PRI | NULL    | auto_increment |
+| name   | varchar(100) | NO   |     | NULL    |                |
+| gender | char(1)      | YES  |     | NULL    |                |
+| salary | double       | NO   |     | NULL    |                |
+| Start  | date         | NO   |     | NULL    |                |
++--------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> ALTER TABLE employee_payroll ADD Phone int(12);
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> ALTER TABLE employee_payroll ADD Department varchar(250);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee_payroll ADD Address varchar(200);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM employee_payroll;
++----+---------+--------+---------+------------+-------+------------+---------+
+| id | name    | gender | salary  | Start      | Phone | Department | Address |
++----+---------+--------+---------+------------+-------+------------+---------+
+|  1 | Bill    | M      | 1000000 | 2010-10-30 |  NULL | NULL       | NULL    |
+|  2 | Tersia  | F      | 2000000 | 2019-11-13 |  NULL | NULL       | NULL    |
+|  3 | Charlie | M      |  300000 | 2020-05-21 |  NULL | NULL       | NULL    |
++----+---------+--------+---------+------------+-------+------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> ALTER TABLE employee_payroll ALTER Address SET DEFAULT 'Mumbai';
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM employee_payroll;
++----+---------+--------+---------+------------+-------+------------+---------+
+| id | name    | gender | salary  | Start      | Phone | Department | Address |
++----+---------+--------+---------+------------+-------+------------+---------+
+|  1 | Bill    | M      | 1000000 | 2010-10-30 |  NULL | NULL       | NULL    |
+|  2 | Tersia  | F      | 2000000 | 2019-11-13 |  NULL | NULL       | NULL    |
+|  3 | Charlie | M      |  300000 | 2020-05-21 |  NULL | NULL       | NULL    |
++----+---------+--------+---------+------------+-------+------------+---------+
+3 rows in set (0.00 sec)
