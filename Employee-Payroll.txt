@@ -407,3 +407,38 @@ mysql> SELECT * FROM Emp_Department;
 |     2 | Sales     |
 +-------+-----------+
 4 rows in set (0.00 sec)
+
+
+UC12: Ensure all retrive queries done especially UC4,UC5 And Uc7
+
+
+mysql> SELECT * FROM Emp_Department;
++-------+-----------+
+| empID | Depart    |
++-------+-----------+
+|     1 | Marketing |
+|     2 | Marketing |
+|     1 | Sales     |
+|     2 | Sales     |
++-------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Emp_Department WHERE empID = 1;
++-------+-----------+
+| empID | Depart    |
++-------+-----------+
+|     1 | Marketing |
+|     1 | Sales     |
++-------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Department WHERE department = 1;
+Empty set, 2 warnings (0.00 sec)
+
+mysql> SELECT * FROM Department WHERE department = 'sales';
++------------+
+| department |
++------------+
+| Sales      |
++------------+
+1 row in set (0.00 sec)
