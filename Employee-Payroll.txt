@@ -319,4 +319,36 @@ mysql> SELECT * FROM employee_payroll;
 |  2 | Tersia  | F      | 2000000 | 2019-11-13 |  NULL | NULL       | NULL    |     NULL |       NULL |       NULL |      NULL |   NULL |
 |  3 | Charlie | M      |  300000 | 2020-05-21 |  NULL | NULL       | NULL    |     NULL |       NULL |       NULL |      NULL |   NULL |
 +----+---------+--------+---------+------------+-------+------------+---------+----------+------------+------------+-----------+--------+
-3 rows in set (0.00 sec)
+3 rows in set (0.00 sec
+
+
+UC10: Draw ER Diagram for payroll service.
+
+
+mysql> select * from employee_payroll;
++----+---------+--------+---------+------------+-------+------------+---------+----------+------------+------------+-----------+--------+
+| id | name    | gender | salary  | Start      | Phone | Department | Address | basicPay | Deductions | TaxablePay | IncomeTax | NetPay |
++----+---------+--------+---------+------------+-------+------------+---------+----------+------------+------------+-----------+--------+
+|  1 | Bill    | M      | 1000000 | 2010-10-30 |  NULL | NULL       | NULL    |     NULL |       NULL |       NULL |      NULL |   NULL |
+|  2 | Tersia  | F      | 2000000 | 2019-11-13 |  NULL | NULL       | NULL    |     NULL |       NULL |       NULL |      NULL |   NULL |
+|  3 | Charlie | M      |  300000 | 2020-05-21 |  NULL | NULL       | NULL    |     NULL |       NULL |       NULL |      NULL |   NULL |
++----+---------+--------+---------+------------+-------+------------+---------+----------+------------+------------+-----------+--------+
+3 rows in set (0.01 sec)
+
+mysql>  CREATE TABLE Department ( department varchar(250) NOT NULL, PRIMARY KEY (department) );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> INSERT INTO Department ( department ) VALUES ('Sales'),('Marketing');
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM Department;
++------------+
+| department |
++------------+
+| Marketing  |
+| Sales      |
++------------+
+2 rows in set (0.00 sec)
+
+
